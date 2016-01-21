@@ -5,7 +5,7 @@ from django import forms
 # Create your models here.
 
 
-class Type_of_food(models.Model):
+class Food_kinds(models.Model):
 	username = models.CharField(max_length = 20)
 	type_code = models.CharField(max_length=10)
 	type_name = models.CharField(max_length = 20)
@@ -24,7 +24,7 @@ class Foods(models.Model):
 	food_name = models.CharField(max_length = 30)
 	food_cost = models.BigIntegerField()
 	food_unit = models.CharField(max_length = 10)
-	foodde_scribe = models.TextField()
+	food_describe = models.TextField()
 
 class Staff(models.Model):
 	username = models.CharField(max_length = 20)
@@ -51,17 +51,24 @@ class Bill(models.Model):
 	bill_total = models.BigIntegerField()
 	bill_cost = models.BigIntegerField()
 
-class Hostprofile (models.CharField):
+class HostProfile (models.Model):
 	username = models.CharField(max_length = 20)
 	password = models.CharField(max_length = 30)
 	repeat_password = models.CharField(max_length = 30)
-	hostmame = models.CharField(max_length = 20)
-	host_porn = models.DateField()
-	hostaddress = models.CharField(max_length = 30)
-	hostphone = models.CharField(max_length = 12)
-	hostemail = models.CharField(max_length = 30)
-	host_create_date = models.DateTimeField(default = timezone.now())
+	host_mame = models.CharField(max_length = 20)
+	host_address = models.CharField(max_length = 30)
+	host_phone = models.CharField(max_length = 12)
+	host_email = models.CharField(max_length = 30)
+	host_create_date = models.DateTimeField(default = timezone.now(), editable = False)
 	captcha_code = models.CharField(max_length = 10)
+
+
+class Service (models.Model):
+	username = models.CharField(max_length = 20)
+	service_name = models.CharField(max_length = 30)
+	service_location = models.CharField(max_length = 30)
+	service_title = models.CharField(max_length = 30)
+	service_describe = models.TextField()
 
 class Captcha(models.Model):
 	captcha_code = models.CharField(max_length = 10)

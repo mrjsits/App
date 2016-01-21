@@ -115,7 +115,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 LOGIN_URL = '/login/' #change to login because require user for logining, protect page order from anonymous
 STATIC_URL = '/static/'
 LOGOUT_URL = '/login/' #change to login because after logout, will be user login, protect page order from anonymous

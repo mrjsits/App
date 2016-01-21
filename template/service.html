@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/fonts.css">
+    <meta name="robots" content="NONE,NOARCHIVE">
+</head>
+<body class = "login">
+    <div id = "header">
+        <div id = "branding">
+            <h1 id ="site-name">PManager</h1>
+        </div>
+        <div id ="user-tools">
+            Welcome, {{request.user}}.
+            <a href="/">Home / </a>
+            <a href="/register"> Create Account / </a>
+            <a href="/logout"> Logout</a>
+        </div>
+    </div>
+    <div id = "container">
+        <div id = "header">
+            <div id = "branding">
+                <div id = "site-name">
+                    Create your service
+                </div>
+            </div>
+        </div>
+        <div id = "content" class="colM">
+            <div id = "content-main">
+                <form method = "POST" id = "login-form">{% csrf_token %}
+                    <div class = "form-row">
+                        {{serviceinfo.as_p}}
+                        <button  type = "submit" class = "save btn btn-default">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div>.
+    </div>
+</body>
+</html>
